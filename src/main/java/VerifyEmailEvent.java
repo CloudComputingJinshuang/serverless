@@ -27,7 +27,7 @@ public class VerifyEmailEvent implements RequestHandler<SNSEvent, Object> {
         String record = request.getRecords().get(0).getSNS().getMessage();
         UserMessage m = new Gson().fromJson(record, UserMessage.class);
 
-        String FROM = "prod.csye6225jinshuang.me";
+        String FROM = "j@prod.csye6225jinshuang.me";
         String TO = m.getUsername();
         String SUBJECT = "User Verification Email";
         String FIRST_NAME = m.getFirst_name();
