@@ -38,7 +38,7 @@ jobs:
 
       - name: Copy Artifact to S3
         run: |
-          aws s3 cp ./target/demo-0.0.1-SNAPSHOT.jar s3://handlerbucket
+          aws s3 cp /home/runner/work/serverless/serverless/target/demo-1.0-SNAPSHOT.jar s3://handlerbucket
 
       - name: update lambda function
         run: |
