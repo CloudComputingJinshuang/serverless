@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c12624e-0a0b-4628-9827-ce76a7a04c7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UserMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VerifyEmailEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo/DynamoConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo/DynamoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo/UserMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo1/src/main/java/com/example/demo/VerifyEmailEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
