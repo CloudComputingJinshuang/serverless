@@ -61,12 +61,12 @@ public class VerifyEmailEvent implements RequestHandler<SNSEvent, Object> {
 
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
         DynamoDB dynamoDB = new DynamoDB(client);
-        String tableName = "StatusTable";
+        String tableName = "SENTS";
 
         try {
             // Add a new item to Forum
             TableWriteItems tableWriteItems = new TableWriteItems(tableName) // Forum
-                    .withItemsToPut(new Item().withPrimaryKey("Email", m.getUsername())
+                    .withItemsToPut(new Item().withPrimaryKey("email", m.getUsername())
                             .withString("Status", "Sent"));
             BatchWriteItemOutcome outcome = dynamoDB.batchWriteItem(tableWriteItems);
             context.getLogger().log("item added to Status table");
