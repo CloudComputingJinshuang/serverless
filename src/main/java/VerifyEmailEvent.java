@@ -38,7 +38,7 @@ public class VerifyEmailEvent implements RequestHandler<SNSEvent, Object> {
         try {
             AmazonSimpleEmailService client =
                     AmazonSimpleEmailServiceClientBuilder.standard()
-                            .withRegion(Regions.US_EAST_1).build();
+                            .withRegion(Regions.US_WEST_2).build();
             SendEmailRequest emailRequest = new SendEmailRequest()
                     .withDestination(
                             new Destination().withToAddresses(TO))
