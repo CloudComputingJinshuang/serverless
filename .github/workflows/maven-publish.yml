@@ -32,8 +32,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: {key}
-          aws-secret-access-key: {secre-key}
+          aws-access-key-id: AKIAWSGWMIDYWZ5I3IGY
+          aws-secret-access-key: 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
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Copy Artifact to S3
