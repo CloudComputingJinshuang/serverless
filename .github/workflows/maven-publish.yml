@@ -8,7 +8,7 @@ on:
     branches: [ main ]
 env:
   ARTIFACT_NAME: csye6225-webapp-serverless.zip
-  AWS_REGION: us-east-2
+  AWS_REGION: us-west-2
   APPLICATION_NAME: deployapp
   APPLICATION_DEPLOY_GROUP: deployGroup
   AWS_ACCESS_KEY_ID: 1
@@ -20,15 +20,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build lambda Artifact
+      - name: build with maven
+        run: mvn -B package --file pom.xml
+      
+      - name: package
         run: |
-            zip -r ${{env.ARTIFACT_NAME}} lambda_function.py
+          pwd
+          mvn clean install
+          pwd
+          ls -al target
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: {key}
           aws-secret-access-key: {secre-key}
           aws-region: ${{ env.AWS_REGION }}
+
+      - name: Copy Artifact to S3
+        run: |
+          aws s3 sync ./target/demo-0.0.1-SNAPSHOT.jar s3://handlerbucket
+
       - name: update lambda function
         run: |
-          aws lambda update-function-code --function-name serverless --zip-file fileb://${{env.ARTIFACT_NAME}}
+          aws lambda update-function-code --function-name my-function --s3-bucket handlerbucket --s3-key demo-0.0.1-SNAPSHOT.jar
