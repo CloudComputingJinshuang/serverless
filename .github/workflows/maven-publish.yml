@@ -42,4 +42,4 @@ jobs:
 
       - name: update lambda function
         run: |
-          aws lambda update-function-code --function-namevemailFunction --s3-bucket handlerbucket --s3-key demo-0.0.1-SNAPSHOT.jar
+          aws lambda update-function-code --function-name vemailFunction --s3-bucket handlerbucket --s3-key demo-0.0.1-SNAPSHOT.jar
