@@ -27,7 +27,7 @@ public class VerifyEmailEvent implements RequestHandler<SNSEvent, Object> {
         String record = request.getRecords().get(0).getSNS().getMessage();
         UserMessage m = new Gson().fromJson(record, UserMessage.class);
 
-        String FROM = "prod.csye6225jinshuang.me";
+        String FROM = "j@prod.csye6225jinshuang.me";
         String TO = m.getUsername();
         String SUBJECT = "User Verification Email";
         String FIRST_NAME = m.getFirst_name();
@@ -38,7 +38,7 @@ public class VerifyEmailEvent implements RequestHandler<SNSEvent, Object> {
         try {
             AmazonSimpleEmailService client =
                     AmazonSimpleEmailServiceClientBuilder.standard()
-                            .withRegion(Regions.US_EAST_1).build();
+                            .withRegion(Regions.US_WEST_2).build();
             SendEmailRequest emailRequest = new SendEmailRequest()
                     .withDestination(
                             new Destination().withToAddresses(TO))
@@ -61,12 +61,12 @@ public class VerifyEmailEvent implements RequestHandler<SNSEvent, Object> {
 
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
         DynamoDB dynamoDB = new DynamoDB(client);
-        String tableName = "StatusTable";
+        String tableName = "SENTS";
 
         try {
             // Add a new item to Forum
             TableWriteItems tableWriteItems = new TableWriteItems(tableName) // Forum
-                    .withItemsToPut(new Item().withPrimaryKey("Email", m.getUsername())
+                    .withItemsToPut(new Item().withPrimaryKey("email", m.getUsername())
                             .withString("Status", "Sent"));
             BatchWriteItemOutcome outcome = dynamoDB.batchWriteItem(tableWriteItems);
             context.getLogger().log("item added to Status table");
